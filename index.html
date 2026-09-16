@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NW agent ｜ その売り込み先、NWがつなぎます。</title>
+<meta name="description" content="日本・中国・台湾の光学／カメラ業界で、開発の現場に立つNWが、御社の製品を届けたい企業のキーマンへ直接おつなぎします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --bg: #f6f7f6;
+    --white: #ffffff;
+    --ink: #14181b;
+    --text-2: #3a4145;
+    --text-3: #5b6368;
+    --text-4: #9aa2a6;
+    --line: #d9ddde;
+    --field: #c3c9cb;
+    --grid: #e6e9ea;
+    --accent: #1f5fa8;
+    --accent-hover: #164a85;
+    --accent-soft: #e8eff7;
+    --accent-on-dark: #8fb4de;
+    --on-dark: #cfd4d6;
+    --on-dark-line: #3a4145;
+    --placeholder: #e0a860;
+    --sans: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --pad: 120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, p { margin: 0; }
+  p, h2 { text-wrap: pretty; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  .mono { font-family: var(--mono); }
+  .wrap { max-width: 1440px; margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+  .grid-bg {
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .sec-head { display: flex; align-items: baseline; gap: 24px; }
+  .sec-num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .sec-title { font-size: 36px; font-weight: 700; line-height: 1.4; }
+
+  /* buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    min-height: 56px; padding: 0 28px;
+    font: inherit; font-size: 16px; font-weight: 700;
+    text-decoration: none; cursor: pointer; border: 0;
+    transition: background-color .15s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); font-weight: 400; font-size: 15px; padding: 0 24px; }
+  .btn-outline:hover { background: var(--white); color: var(--ink); }
+  .btn svg { flex-shrink: 0; }
+
+  /* header */
+  .site-header { position: sticky; top: 0; z-index: 10; background: rgba(246, 247, 246, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: baseline; gap: 14px; color: var(--ink); text-decoration: none; }
+  .brand:hover { color: var(--ink); }
+  .brand-name { font-size: 22px; font-weight: 700; letter-spacing: .02em; }
+  .brand-sub { font-family: var(--mono); font-size: 12px; color: var(--text-3); }
+  .nav { display: flex; align-items: center; gap: 36px; font-size: 14px; }
+  .nav a { color: var(--ink); text-decoration: none; }
+  .nav a:hover { color: var(--accent); }
+  .nav .nav-cta { display: inline-flex; align-items: center; height: 40px; padding: 0 20px; background: var(--ink); color: var(--bg); font-weight: 500; }
+  .nav .nav-cta:hover { background: var(--accent); color: #fff; }
+  .menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: none; border: 0; color: var(--ink); cursor: pointer; }
+
+  /* hero */
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-top: 96px; padding-bottom: 88px; }
+  .hero-copy { display: flex; flex-direction: column; gap: 32px; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: .08em; }
+  .hero h1 { font-size: 60px; line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
+  .hero-lead { font-size: 18px; line-height: 1.9; color: var(--text-2); max-width: 540px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .nda { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.7; color: var(--text-3); }
+  .nda svg { flex-shrink: 0; margin-top: 3px; }
+  .hero-map { border: 1px solid var(--line); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* numbers */
+  .numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+  .num { display: flex; flex-direction: column; gap: 8px; padding: 32px 0 32px 40px; border-left: 1px solid var(--line); }
+  .num:first-child { padding-left: 0; border-left: 0; }
+  .num-label { font-family: var(--mono); font-size: 12px; color: var(--text-3); }
+  .num-value { font-size: 44px; font-weight: 700; line-height: 1.2; }
+  .num-value small { font-size: 20px; margin-left: 4px; }
+  .num-desc { font-size: 14px; color: var(--text-2); }
+
+  /* problems */
+  .problems .wrap { display: flex; flex-direction: column; gap: 48px; padding-top: 120px; padding-bottom: 104px; }
+  .cards-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .problem { display: flex; flex-direction: column; gap: 20px; padding: 32px; background: var(--white); border: 1px solid var(--line); }
+  .problem p { font-size: 19px; line-height: 1.7; font-weight: 500; }
+
+  /* about */
+  .about { background: var(--ink); color: var(--bg); }
+  .about .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; padding-top: 104px; padding-bottom: 104px; }
+  .about-head { display: flex; flex-direction: column; gap: 24px; }
+  .about h2 { font-size: 40px; line-height: 1.45; font-weight: 700; }
+  .about-body { display: flex; flex-direction: column; gap: 24px; font-size: 17px; line-height: 2; color: var(--on-dark); }
+
+  /* strengths */
+  .strengths .wrap { display: flex; flex-direction: column; gap: 56px; padding-top: 120px; padding-bottom: 120px; }
+  .strength-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .strength { display: flex; flex-direction: column; gap: 20px; padding: 36px 36px 0; border-left: 1px solid var(--line); }
+  .strength:first-child { padding-left: 0; border-left: 0; }
+  .strength:last-child { padding-right: 0; }
+  .strength-num { font-family: var(--mono); font-size: 44px; color: var(--accent); line-height: 1; }
+  .strength h3 { font-size: 24px; font-weight: 700; }
+  .strength p { font-size: 16px; line-height: 1.9; color: var(--text-2); }
+  .diff { display: flex; gap: 40px; align-items: center; padding: 32px 40px; background: var(--accent-soft); }
+  .diff-label { flex-shrink: 0; font-size: 15px; font-weight: 700; color: var(--accent); }
+  .diff p { font-size: 16px; line-height: 1.8; }
+
+  /* cases */
+  .cases { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cases .wrap { display: flex; flex-direction: column; gap: 48px; padding-top: 104px; padding-bottom: 104px; }
+  .case { display: grid; grid-template-columns: 300px 56px 300px minmax(0, 1fr); align-items: center; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); }
+  .case:last-child { border-bottom: 1px solid var(--line); }
+  .case-party { font-size: 18px; font-weight: 700; }
+  .case p { font-size: 16px; color: var(--text-2); line-height: 1.7; }
+
+  /* flow */
+  .flow .wrap { display: flex; flex-direction: column; gap: 56px; padding-top: 120px; padding-bottom: 120px; }
+  .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
+  .step { display: flex; flex-direction: column; gap: 14px; padding-top: 20px; border-top: 3px solid var(--accent); }
+  .step-num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .step h3 { font-size: 20px; font-weight: 700; }
+  .step p { font-size: 14px; line-height: 1.8; color: var(--text-2); }
+
+  /* pricing */
+  .pricing .wrap { display: flex; flex-direction: column; gap: 48px; padding-bottom: 120px; }
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .plan { display: flex; flex-direction: column; gap: 20px; padding: 40px; background: var(--white); border: 1px solid var(--line); }
+  .plan-tag { font-family: var(--mono); font-size: 13px; color: var(--text-3); }
+  .plan h3 { font-size: 28px; font-weight: 700; }
+  .plan p { font-size: 16px; line-height: 1.8; color: var(--text-2); flex-grow: 1; }
+  .plan-price { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .plan-price span:first-child { font-size: 14px; color: var(--text-3); }
+  .plan-price span:last-child { font-size: 20px; font-weight: 700; }
+  .plan-dark { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .plan-dark .plan-tag { color: var(--accent-on-dark); }
+  .plan-dark p { color: var(--on-dark); }
+  .plan-dark .plan-price { border-top-color: var(--on-dark-line); }
+  .plan-dark .plan-price span:first-child { color: var(--text-4); }
+
+  /* faq */
+  .faq { background: var(--white); border-top: 1px solid var(--line); }
+  .faq .wrap { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 80px; padding-top: 104px; padding-bottom: 104px; }
+  .faq-list { border-top: 1px solid var(--ink); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 26px 0; font-size: 18px; font-weight: 700; cursor: pointer; list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary svg { flex-shrink: 0; transition: transform .2s; color: var(--accent); }
+  .faq details[open] summary svg { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 26px; font-size: 15px; line-height: 1.9; color: var(--text-2); }
+
+  /* contact */
+  .contact .wrap { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 80px; padding-top: 120px; padding-bottom: 120px; }
+  .contact-head { display: flex; flex-direction: column; gap: 24px; }
+  .contact-head h2 { font-size: 36px; line-height: 1.5; font-weight: 700; }
+  .contact-head p { font-size: 15px; line-height: 1.9; color: var(--text-2); }
+  .placeholder { color: var(--placeholder); font-weight: 700; }
+  .form { display: flex; flex-direction: column; gap: 20px; padding: 48px; background: var(--white); border: 1px solid var(--line); }
+  .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label { font-size: 14px; font-weight: 500; }
+  .req, .opt { font-size: 12px; margin-left: 6px; }
+  .req { color: var(--accent); }
+  .opt { color: var(--text-3); }
+  .field input, .field textarea {
+    width: 100%; min-height: 48px; padding: 12px 14px;
+    font: inherit; font-size: 16px; color: var(--ink);
+    background: var(--white); border: 1px solid var(--field); border-radius: 0;
+  }
+  .field textarea { min-height: 96px; resize: vertical; line-height: 1.7; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--text-4); }
+  .field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
+  .form .btn { width: 100%; min-height: 60px; margin-top: 8px; }
+  .form-note { font-size: 12px; line-height: 1.7; color: var(--text-3); }
+
+  /* footer */
+  .site-footer { background: var(--ink); color: var(--on-dark); }
+  .site-footer .wrap { display: flex; flex-direction: column; gap: 48px; padding-top: 72px; padding-bottom: 40px; }
+  .footer-grid { display: grid; grid-template-columns: 360px repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+  .footer-brand .brand-name { color: var(--bg); }
+  .footer-brand .mono { font-size: 12px; color: var(--text-4); }
+  .footer-brand a { color: var(--on-dark); font-size: 14px; margin-top: 8px; }
+  .office { display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.8; font-style: normal; }
+  .office .mono { font-size: 12px; color: var(--accent-on-dark); }
+  .office .placeholder { color: var(--placeholder); font-weight: 400; }
+  .copyright { padding-top: 24px; border-top: 1px solid #2c3236; font-size: 12px; color: #7c8488; }
+
+  /* ---------- tablet ---------- */
+  @media (max-width: 1180px) {
+    :root { --pad: 48px; }
+    .hero h1 { font-size: 48px; }
+    .case { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); }
+    .case p { grid-column: 1 / -1; }
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
+    .faq .wrap, .contact .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 860px) {
+    :root { --pad: 20px; }
+    .grid-bg { background-size: 28px 28px; }
+    .sec-head { flex-direction: column; gap: 8px; }
+    .sec-num { font-size: 12px; }
+    .sec-title { font-size: 24px; }
+
+    .site-header .wrap { height: 60px; }
+    .brand { flex-direction: column; gap: 2px; }
+    .brand-name { font-size: 18px; }
+    .brand-sub { font-size: 10px; }
+    .menu-btn { display: inline-flex; }
+    .nav {
+      display: none; position: absolute; top: 60px; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      padding: 8px 20px 20px; background: var(--bg); border-bottom: 1px solid var(--line);
+    }
+    .nav.open { display: flex; }
+    .nav a { display: flex; align-items: center; min-height: 48px; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .nav .nav-cta { justify-content: center; height: 52px; margin-top: 16px; border-bottom: 0; }
+
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-top: 40px; padding-bottom: 36px; }
+    .hero-copy { display: contents; }
+    .eyebrow { font-size: 11px; order: 1; }
+    .hero h1 { font-size: 34px; line-height: 1.35; order: 2; }
+    .hero-lead { font-size: 15px; order: 3; }
+    .hero-visual { order: 4; }
+    .hero-actions { order: 5; flex-direction: column; }
+    .hero-actions .btn { width: 100%; }
+    .hero-actions .btn-outline { display: none; }
+    .nda { font-size: 12px; order: 6; }
+
+    .num { gap: 4px; padding: 18px 0 18px 12px; }
+    .num-label { display: none; }
+    .num-value { font-size: 26px; }
+    .num-value small { font-size: 13px; margin-left: 0; }
+    .num-desc { font-size: 11px; line-height: 1.5; }
+
+    .problems .wrap { gap: 24px; padding-top: 64px; padding-bottom: 56px; }
+    .cards-3 { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .problem { flex-direction: row; align-items: flex-start; gap: 16px; padding: 20px; }
+    .problem svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .problem p { font-size: 15px; }
+
+    .about .wrap { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 56px; padding-bottom: 56px; }
+    .about h2 { font-size: 26px; line-height: 1.5; }
+    .about-body { font-size: 15px; line-height: 1.95; gap: 20px; }
+
+    .strengths .wrap { gap: 24px; padding-top: 64px; padding-bottom: 64px; }
+    .strength-list { grid-template-columns: minmax(0, 1fr); }
+    .strength, .strength:first-child, .strength:last-child { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; row-gap: 10px; align-items: baseline; padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
+    .strength:first-child { border-top: 0; }
+    .strength-num { font-size: 24px; }
+    .strength h3 { font-size: 19px; }
+    .strength p { grid-column: 1 / -1; font-size: 14px; }
+    .diff { flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px; }
+    .diff-label { font-size: 14px; }
+    .diff p { font-size: 14px; }
+
+    .cases .wrap { gap: 24px; padding-top: 56px; padding-bottom: 56px; }
+    .case { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 20px 0; }
+    .case-party { font-size: 15px; }
+    .case svg { width: 28px; }
+    .case p { flex-basis: 100%; font-size: 14px; }
+
+    .flow .wrap { gap: 24px; padding-top: 64px; padding-bottom: 64px; }
+    .steps { grid-template-columns: minmax(0, 1fr); gap: 0; margin-left: 6px; border-left: 2px solid var(--accent); }
+    .step { gap: 4px; padding: 0 0 22px 20px; border-top: 0; }
+    .step:last-child { padding-bottom: 0; }
+    .step-num { font-size: 11px; }
+    .step h3 { font-size: 17px; }
+    .step p { font-size: 13px; line-height: 1.7; }
+
+    .pricing .wrap { gap: 20px; padding-bottom: 64px; }
+    .plans { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .plan { gap: 14px; padding: 24px; }
+    .plan-tag { font-size: 11px; }
+    .plan h3 { font-size: 22px; }
+    .plan p { font-size: 14px; }
+    .plan-price { padding-top: 14px; }
+    .plan-price span:first-child { font-size: 13px; }
+    .plan-price span:last-child { font-size: 16px; }
+
+    .faq .wrap { gap: 20px; padding-top: 56px; padding-bottom: 56px; }
+    .faq summary { padding: 20px 0; font-size: 16px; }
+    .faq details p { padding-bottom: 20px; font-size: 14px; line-height: 1.85; }
+
+    .contact .wrap { gap: 24px; padding-top: 64px; padding-bottom: 64px; }
+    .contact-head { gap: 12px; }
+    .contact-head h2 { font-size: 24px; }
+    .contact-head p { font-size: 13px; line-height: 1.8; }
+    .form { gap: 16px; padding: 20px; }
+    .form-row { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .field label { font-size: 13px; }
+    .form .btn { min-height: 56px; }
+
+    .site-footer .wrap { gap: 24px; padding-top: 48px; padding-bottom: 32px; }
+    .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .office { font-size: 12px; gap: 4px; }
+    .office br.pc { display: none; }
+    .copyright { padding-top: 18px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-name">NW agent</span>
+      <span class="brand-sub">日中台 光学ビジネスマッチング</span>
+    </a>
+    <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="ページ内メニュー">
+      <a href="#strengths">強み</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a class="nav-cta" href="#contact">紹介について相談する</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero grid-bg">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">JAPAN → CHINA / TAIWAN</span>
+        <h1>その売り込み先、<br>NWがつなぎます。</h1>
+        <p class="hero-lead">日本・中国・台湾の光学／カメラ業界で、開発の現場に立つNWが、御社の製品を届けたい企業のキーマンへ直接おつなぎします。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">紹介について相談する
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-outline" href="#flow">ご利用の流れを見る</a>
+        </div>
+        <p class="nda">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          ご相談内容は秘密保持契約（NDA）を結んだうえで取り扱います。
+        </p>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-map" src="images/network-map.jpg" width="1448" height="1086" alt="日本（横浜）・中国（上海）・台湾（台北）をNWがつなぐネットワーク図">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="numbers">
+      <div class="num">
+        <span class="num-label">NETWORK</span>
+        <span class="num-value">約70<small>社</small></span>
+        <span class="num-desc">日本・中国・台湾の取引先ネットワーク</span>
+      </div>
+      <div class="num">
+        <span class="num-label">INTRODUCTIONS</span>
+        <span class="num-value">100<small>件以上</small></span>
+        <span class="num-desc">これまでの企業紹介の実績</span>
+      </div>
+      <div class="num">
+        <span class="num-label">SINCE</span>
+        <span class="num-value">2018<small>年</small></span>
+        <span class="num-desc">創業から光学分野の開発に携わる</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="problems" aria-labelledby="problems-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title" id="problems-title">こんなお悩みはありませんか</h2>
+      </div>
+      <div class="cards-3">
+        <div class="problem">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1f5fa8" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v3M11 14h.01"/></svg>
+          <p>売り込みたい相手の、どの部署の誰に連絡すればいいかわからない</p>
+        </div>
+        <div class="problem">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1f5fa8" stroke-width="1.6" aria-hidden="true"><path d="M3 12h6M15 12h6M9 8v8M15 8v8"/></svg>
+          <p>商社経由で提案しているが、先方の開発・調達まで話が届かない</p>
+        </div>
+        <div class="problem">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1f5fa8" stroke-width="1.6" aria-hidden="true"><path d="M4 5h9v7H8l-4 3z"/><path d="M13 9h7v7l-3-2h-4z"/></svg>
+          <p>言葉や商習慣の違いで、商談が前に進まない</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="about-head">
+        <div class="sec-head">
+          <span class="sec-num" style="color: var(--accent-on-dark);">02</span>
+          <span class="mono" style="font-size: 13px; color: var(--text-4);">ABOUT</span>
+        </div>
+        <h2 id="about-title">開発の現場にいるから、<br>キーマンにつなげる。</h2>
+      </div>
+      <div class="about-body">
+        <p>NWは2018年から、材料メーカー・カメラモジュールメーカー・スマートフォンメーカーとともに、光学分野の新規開発に携わってきました。</p>
+        <p>日々の開発で築いた日本・中国・台湾のキーマンや経営層とのつながりを、これまでは取引先へ個別にご紹介してきました。NW agentは、この紹介を正式なサービスとして、より多くの企業様にご利用いただくものです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="strengths" id="strengths" aria-labelledby="strengths-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title" id="strengths-title">NW agentの強み</h2>
+      </div>
+      <div class="strength-list">
+        <div class="strength">
+          <span class="strength-num">01</span>
+          <h3>光学がわかる紹介</h3>
+          <p>材料・レンズ・モジュールの技術を理解したうえで、相手先の開発・調達部門に響く形で提案をつなぎます。</p>
+        </div>
+        <div class="strength">
+          <span class="strength-num">02</span>
+          <h3>日中台のキーマンに届く</h3>
+          <p>日本・中国・台湾の約70社と日常的に仕事をしています。代表窓口ではなく、担当者や決裁者へ直接おつなぎします。</p>
+        </div>
+        <div class="strength">
+          <span class="strength-num">03</span>
+          <h3>言葉と商習慣の壁を越える</h3>
+          <p>横浜・上海・台北の拠点に、日本語・中国語・英語で対応できるスタッフがいます。紹介後の商談にも同席します。</p>
+        </div>
+      </div>
+      <div class="diff">
+        <span class="diff-label">商社との違い</span>
+        <p>NWは光学分野の開発に携わる会社です。製品の技術的な価値を理解したうえで、相手先の開発・調達の担当者へ直接おつなぎします。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cases" aria-labelledby="cases-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title" id="cases-title">ご相談の例</h2>
+      </div>
+      <div>
+        <div class="case">
+          <span class="case-party">日本の材料メーカー</span>
+          <svg width="56" height="16" viewBox="0 0 56 16" fill="none" stroke="#1f5fa8" stroke-width="1.5" aria-label="から"><path d="M0 8h54M47 2l7 6-7 6"/></svg>
+          <span class="case-party">中国の光学部品メーカー</span>
+          <p>新しい光学材料を、中国の量産ラインで採用してほしい</p>
+        </div>
+        <div class="case">
+          <span class="case-party">日本のカメラモジュールメーカー</span>
+          <svg width="56" height="16" viewBox="0 0 56 16" fill="none" stroke="#1f5fa8" stroke-width="1.5" aria-label="から"><path d="M0 8h54M47 2l7 6-7 6"/></svg>
+          <span class="case-party">中国のスマートフォン大手</span>
+          <p>自社のモジュールを、開発部門に直接提案したい</p>
+        </div>
+        <div class="case">
+          <span class="case-party">台湾の部品メーカー</span>
+          <svg width="56" height="16" viewBox="0 0 56 16" fill="none" stroke="#1f5fa8" stroke-width="1.5" aria-label="から"><path d="M0 8h54M47 2l7 6-7 6"/></svg>
+          <span class="case-party">日本の製造メーカー</span>
+          <p>日本のメーカーと、新しく取引を始めたい</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow" id="flow" aria-labelledby="flow-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title" id="flow-title">ご利用の流れ</h2>
+      </div>
+      <ol class="steps">
+        <li class="step"><span class="step-num">STEP 1</span><h3>ヒアリング</h3><p>売りたい製品と、つながりたい相手をお聞きします。</p></li>
+        <li class="step"><span class="step-num">STEP 2</span><h3>NDAの締結</h3><p>秘密保持契約を結び、詳しい内容を共有いただきます。</p></li>
+        <li class="step"><span class="step-num">STEP 3</span><h3>候補の選定</h3><p>NWのネットワークから、相手先と担当者を選びます。</p></li>
+        <li class="step"><span class="step-num">STEP 4</span><h3>紹介・同席</h3><p>オンラインまたは訪問でご紹介し、商談に同席します。</p></li>
+        <li class="step"><span class="step-num">STEP 5</span><h3>フォロー</h3><p>商談の進み具合を確認し、次の一歩を一緒に考えます。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title" id="pricing-title">料金プラン</h2>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <span class="plan-tag">SPOT</span>
+          <h3>スポット</h3>
+          <p>特定の企業・部門へのご紹介を、1件ずつお受けします。まずは1社と話してみたい企業様に。</p>
+          <div class="plan-price"><span>料金</span><span>個別にお見積り</span></div>
+        </div>
+        <div class="plan plan-dark">
+          <span class="plan-tag">MONTHLY</span>
+          <h3>継続支援</h3>
+          <p>狙う市場を一緒に決め、複数社へのご紹介と商談の進め方を継続して支援します。</p>
+          <div class="plan-price"><span>料金</span><span>月額・個別にお見積り</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">07</span>
+        <h2 class="sec-title" id="faq-title">よくある質問</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>商社とは何が違いますか？<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p>NWは光学分野の開発に携わっている会社です。技術の中身を理解したうえで、相手先の開発・調達の担当者へ直接おつなぎします。</p>
+        </details>
+        <details>
+          <summary>どんな分野に対応していますか？<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p>カメラ・光学（材料、レンズ、カメラモジュール、スマートフォン）が中心です。周辺の分野もご相談ください。</p>
+        </details>
+        <details>
+          <summary>相談内容は秘密にしてもらえますか？<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p>はい。秘密保持契約（NDA）を結んだうえで、詳しい内容をお伺いします。</p>
+        </details>
+        <details>
+          <summary>中国語ができなくても大丈夫ですか？<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p>横浜・上海・台北の拠点に、日本語・中国語・英語で対応できるスタッフがいます。</p>
+        </details>
+        <details>
+          <summary>費用はいつ決まりますか？<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <p>ヒアリングのあと、ご紹介の内容に合わせてお見積りします。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact grid-bg" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-head">
+        <div class="sec-head">
+          <span class="sec-num">08</span>
+          <span class="mono" style="font-size: 13px; color: var(--text-3);">CONTACT</span>
+        </div>
+        <h2 id="contact-title">つながりたい相手を、<br>お聞かせください。</h2>
+        <p>担当者より<span class="placeholder">[◯営業日]</span>以内にご連絡します。ご相談内容は秘密保持契約を結んだうえで取り扱います。</p>
+      </div>
+
+      <!-- 送信の仕組みは公開前に決定。それまではメールソフトを開いて送信する -->
+      <form class="form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="会社名" required autocomplete="organization"></div>
+          <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="お名前" required autocomplete="name"></div>
+          <div class="field"><label for="f-dept">部署・役職<span class="req">必須</span></label><input id="f-dept" name="部署・役職" required autocomplete="organization-title"></div>
+          <div class="field"><label for="f-email">メールアドレス<span class="req">必須</span></label><input id="f-email" name="メールアドレス" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="f-product">売りたい製品・技術<span class="req">必須</span></label><textarea id="f-product" name="売りたい製品・技術" required></textarea></div>
+        <div class="field"><label for="f-target">つながりたい相手<span class="req">必須</span></label><input id="f-target" name="つながりたい相手" required placeholder="国・業種・企業名（わかる範囲で）"></div>
+        <div class="form-row">
+          <div class="field"><label for="f-tel">電話番号<span class="opt">任意</span></label><input id="f-tel" name="電話番号" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-when">希望の時期<span class="opt">任意</span></label><input id="f-when" name="希望の時期"></div>
+        </div>
+        <div class="field"><label for="f-note">その他<span class="opt">任意</span></label><textarea id="f-note" name="その他"></textarea></div>
+        <button class="btn btn-primary" type="submit">この内容で相談する
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">ボタンを押すと、入力内容が入ったメールの作成画面が開きます。そのまま送信してください（宛先：sales2@cnw2018.com）。</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">NW agent</span>
+        <span class="mono">by NW ／ 有限会社シン・ワールド</span>
+        <a href="mailto:sales2@cnw2018.com">sales2@cnw2018.com</a>
+      </div>
+      <address class="office">
+        <span class="mono">JAPAN</span>
+        <span>〒231-0062<br class="pc">神奈川県横浜市中区桜木町2-2<br class="pc">港陽ビル THE CODE 横浜 4階</span>
+      </address>
+      <address class="office">
+        <span class="mono">CHINA</span>
+        <span>上海市浦东新区惠南镇<br class="pc">南祝路2999弄8号403室A20</span>
+      </address>
+      <address class="office">
+        <span class="mono">TAIWAN</span>
+        <span>台北 <span class="placeholder">[詳しい住所・確定後に記載]</span></span>
+      </address>
+    </div>
+    <div class="copyright mono">© 2026 有限会社シン・ワールド</div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // contact form -> mail app
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const lines = [...form.elements]
+      .filter((el) => el.name)
+      .map((el) => `【${el.name}】\n${el.value.trim() || '—'}`);
+    const company = form.elements['会社名'].value.trim();
+    const subject = `NW agent 紹介のご相談（${company}）`;
+    const body = `NW agent ご担当者様\n\n以下の内容で紹介について相談させてください。\n\n${lines.join('\n\n')}\n`;
+    location.href = `mailto:sales2@cnw2018.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
