@@ -14,14 +14,37 @@ nav.addEventListener('click', (e) => {
 
 // contact form -> mail app
 const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
+const status = document.getElementById('form-status');
+const submitBtn = form.querySelector('button[type="submit"]');
+const isZh = document.documentElement.lang.startsWith('zh');
+const MSG = isZh
+  ? { sending: '傳送中…', ok: '已送出，感謝您的洽詢。我們會在 3 個工作天內與您聯繫。',
+      ng: '傳送失敗。請稍後再試，或直接寄信至 sales2@cnw2018.com。' }
+  : { sending: '送信中…', ok: 'お問い合わせを受け付けました。3営業日以内にご連絡します。',
+      ng: '送信できませんでした。時間をおいて試すか、sales2@cnw2018.com へ直接お送りください。' };
+
+function show(text, state) {
+  status.textContent = text;
+  status.dataset.state = state;
+  status.hidden = false;
+}
+
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!form.reportValidity()) return;
-  const lines = [...form.elements]
-    .filter((el) => el.name)
-    .map((el) => `【${el.name}】\n${el.value.trim() || '—'}`);
-  const { subject, greeting } = form.dataset;
-  const company = form.elements[0].value.trim();
-  const body = `${greeting}\n\n${lines.join('\n\n')}\n`;
-  location.href = `mailto:sales2@cnw2018.com?subject=${encodeURIComponent(`${subject}（${company}）`)}&body=${encodeURIComponent(body)}`;
+  submitBtn.disabled = true;
+  show(MSG.sending, 'sending');
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
+    if (!res.ok) throw new Error(String(res.status));
+    form.reset();
+    show(MSG.ok, 'ok');
+  } catch (err) {
+    submitBtn.disabled = false;
+    show(MSG.ng, 'ng');
+  }
 });

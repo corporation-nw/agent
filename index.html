@@ -260,12 +260,15 @@
       </div>
 
       <!-- 送信の仕組みは公開前に決定。それまではメールソフトを開いて送信する -->
-      <form class="form" id="contact-form" novalidate data-subject="NW agent 紹介のご相談" data-greeting="NW agent ご担当者様&#10;&#10;以下の内容で紹介について相談させてください。">
+      <form class="form" id="contact-form" novalidate action="https://formspree.io/f/meaoeaed" method="POST" data-subject="NW agent 紹介のご相談" data-greeting="NW agent ご担当者様&#10;&#10;以下の内容で紹介について相談させてください。">
+        <input type="hidden" name="_subject" value="NW agent 紹介のご相談">
+        <input type="hidden" name="_language" value="ja">
+        <p class="form-gotcha" aria-hidden="true"><label>この欄は入力しないでください<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <div class="form-row">
           <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="会社名" required autocomplete="organization"></div>
           <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="お名前" required autocomplete="name"></div>
           <div class="field"><label for="f-dept">部署・役職<span class="req">必須</span></label><input id="f-dept" name="部署・役職" required autocomplete="organization-title"></div>
-          <div class="field"><label for="f-email">メールアドレス<span class="req">必須</span></label><input id="f-email" name="メールアドレス" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="f-email">メールアドレス<span class="req">必須</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
         </div>
         <div class="field"><label for="f-product">売りたい製品・技術<span class="req">必須</span></label><textarea id="f-product" name="売りたい製品・技術" required></textarea></div>
         <div class="field"><label for="f-target">つながりたい相手<span class="req">必須</span></label><input id="f-target" name="つながりたい相手" required placeholder="国・業種・企業名（わかる範囲で）"></div>
@@ -277,7 +280,8 @@
         <button class="btn btn-primary" type="submit">この内容で相談する
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="form-note">ボタンを押すと、入力内容が入ったメールの作成画面が開きます。そのまま送信してください（宛先：sales2@cnw2018.com）。お預かりした個人情報は<a href="../privacy/">プライバシーポリシー</a>に沿って取り扱います。</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="form-note">送信すると、担当者に直接届きます。3営業日以内にご連絡します。お預かりした個人情報は<a href="../privacy/">プライバシーポリシー</a>に沿って取り扱います。</p>
       </form>
     </div>
   </section>

@@ -260,12 +260,15 @@
       </div>
 
       <!-- 送信の仕組みは公開前に決定。それまではメールソフトを開いて送信する -->
-      <form class="form" id="contact-form" novalidate data-subject="NW agent 引薦諮詢" data-greeting="NW agent 負責人您好：&#10;&#10;想就以下內容諮詢引薦服務。">
+      <form class="form" id="contact-form" novalidate action="https://formspree.io/f/meaoeaed" method="POST" data-subject="NW agent 引薦諮詢" data-greeting="NW agent 負責人您好：&#10;&#10;想就以下內容諮詢引薦服務。">
+        <input type="hidden" name="_subject" value="NW agent 引薦諮詢">
+        <input type="hidden" name="_language" value="zh">
+        <p class="form-gotcha" aria-hidden="true"><label>この欄は入力しないでください<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <div class="form-row">
           <div class="field"><label for="f-company">公司名稱<span class="req">必填</span></label><input id="f-company" name="公司名稱" required autocomplete="organization"></div>
           <div class="field"><label for="f-name">姓名<span class="req">必填</span></label><input id="f-name" name="姓名" required autocomplete="name"></div>
           <div class="field"><label for="f-dept">部門・職稱<span class="req">必填</span></label><input id="f-dept" name="部門・職稱" required autocomplete="organization-title"></div>
-          <div class="field"><label for="f-email">電子郵件<span class="req">必填</span></label><input id="f-email" name="電子郵件" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="f-email">電子郵件<span class="req">必填</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
         </div>
         <div class="field"><label for="f-product">想推廣的產品・技術<span class="req">必填</span></label><textarea id="f-product" name="想推廣的產品・技術" required></textarea></div>
         <div class="field"><label for="f-target">想接觸的對象<span class="req">必填</span></label><input id="f-target" name="想接觸的對象" required placeholder="國家・產業・企業名稱（可填寫已知部分）"></div>
@@ -277,7 +280,8 @@
         <button class="btn btn-primary" type="submit">送出諮詢
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="form-note">按下按鈕後，將開啟已填入內容的郵件視窗，請直接寄出（收件人：sales2@cnw2018.com）。您提供的個人資料，將依<a href="../../zh-tw/privacy/">隱私權政策</a>處理。</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="form-note">送出後將直接寄達負責人。我們會在 3 個工作天內與您聯繫。您提供的個人資料，將依<a href="../../zh-tw/privacy/">隱私權政策</a>處理。</p>
       </form>
     </div>
   </section>
