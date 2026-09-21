@@ -33,6 +33,7 @@ body {
 h1, h2, h3, p { margin: 0; }
 :lang(zh-Hant-TW) { --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; }
 :lang(ja) { --sans: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif; }
+:lang(en) { --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif; }
 p, h2 { text-wrap: pretty; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: var(--accent); }
@@ -329,3 +330,24 @@ a:hover { color: var(--accent-hover); }
 .form-status[data-state="sending"] { background: var(--accent-soft); color: var(--accent-hover); }
 .form-status[data-state="ok"] { background: var(--accent-soft); color: var(--accent-hover); font-weight: 500; }
 .form-status[data-state="ng"] { background: #fdecea; color: #a33223; }
+
+/* 英語版：ヘッダーの文字が長いので折り返さないように詰める */
+:lang(en) .brand-name, :lang(en) .brand-sub, :lang(en) .nav a { white-space: nowrap; }
+@media (min-width: 861px) {
+  :lang(en) .nav { gap: 22px; font-size: 13px; }
+  :lang(en) .hero h1 { font-size: 52px; line-height: 1.18; }
+}
+@media (min-width: 861px) and (max-width: 1180px) {
+  :lang(en) .brand-sub { display: none; }
+  :lang(en) .hero h1 { font-size: 42px; }
+}
+
+/* ヘッダーのメニューを 1 行に収める（言語が 3 つになったため） */
+@media (min-width: 861px) {
+  .nav a { white-space: nowrap; }
+}
+@media (min-width: 861px) and (max-width: 1280px) {
+  .nav { gap: 22px; font-size: 13px; }
+  .brand { flex-direction: column; gap: 2px; }
+  .brand-name { font-size: 19px; }
+}
