@@ -20,11 +20,13 @@ const lang = document.documentElement.lang;
 const MSG = {
   zh: { sending: '傳送中…', ok: '已送出，感謝您的洽詢。我們會在 3 個工作天內與您聯繫。',
         ng: '傳送失敗。請稍後再試，或直接寄信至 sales2@cnw2018.com。' },
+  cn: { sending: '发送中…', ok: '已提交，感谢您的咨询。我们会在 3 个工作日内与您联系。',
+        ng: '发送失败。请稍后再试，或直接发送邮件至 sales2@cnw2018.com。' },
   en: { sending: 'Sending…', ok: 'Thank you. We have received your inquiry and will reply within 3 business days.',
         ng: 'Your message could not be sent. Please try again later, or email us at sales2@cnw2018.com.' },
   ja: { sending: '送信中…', ok: 'お問い合わせを受け付けました。3営業日以内にご連絡します。',
         ng: '送信できませんでした。時間をおいて試すか、sales2@cnw2018.com へ直接お送りください。' },
-}[lang.startsWith('zh') ? 'zh' : lang.startsWith('en') ? 'en' : 'ja'];
+}[lang.startsWith('zh-Hans') ? 'cn' : lang.startsWith('zh') ? 'zh' : lang.startsWith('en') ? 'en' : 'ja'];
 
 function show(text, state) {
   status.textContent = text;
